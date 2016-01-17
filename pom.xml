@@ -4,6 +4,9 @@
     <groupId>me.rkfg.pfe</groupId>
     <artifactId>cli</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <profiles>
         <profile>
             <id>windows</id>
