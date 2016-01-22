@@ -93,7 +93,7 @@ public class Main {
 
     private void share(String[] params) throws InterruptedException {
         final CountDownLatch signal = new CountDownLatch(1);
-        final TorrentHandle handle = pfeCore.share(params[0]);
+        final TorrentHandle handle = pfeCore.share(null, params);
         handle.resume();
         Timer timerFinish = new Timer("Stats checker", true);
         timerFinish.schedule(new TimerTask() {
