@@ -10,6 +10,11 @@
     <profiles>
         <profile>
             <id>windows</id>
+            <activation>
+                <property>
+                    <name>windows</name>
+                </property>
+            </activation>
             <properties>
                 <profile-id>windows</profile-id>
             </properties>
@@ -24,12 +29,34 @@
         </profile>
         <profile>
             <id>linux</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>linux</name>
+                </property>
+            </activation>
             <properties>
                 <profile-id>linux</profile-id>
             </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>me.rkfg.pfe</groupId>
+                    <artifactId>core</artifactId>
+                    <version>0.0.1-SNAPSHOT</version>
+                    <classifier>${profile-id}</classifier>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>arm</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <property>
+                    <name>arm</name>
+                </property>
             </activation>
+            <properties>
+                <profile-id>android-arm</profile-id>
+            </properties>
             <dependencies>
                 <dependency>
                     <groupId>me.rkfg.pfe</groupId>
