@@ -38,7 +38,7 @@ public class Main {
             share(params);
             break;
         case "get":
-            if (args.length < 3) {
+            if (params.length < 1) {
                 showUsage();
                 return;
             }
@@ -55,7 +55,11 @@ public class Main {
     }
 
     private void get(String[] params) throws InterruptedException {
-        TorrentHandle handle = pfeCore.addTorrent(params[0], params[1]);
+        String saveTo = ".";
+        if (params.length > 1) {
+            saveTo = params[1];
+        }
+        TorrentHandle handle = pfeCore.addTorrent(params[0], saveTo);
         final CountDownLatch signal = new CountDownLatch(1);
         pfeCore.addListener(new TorrentAlertAdapter(handle) {
             @Override
